@@ -1,0 +1,25 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+library(tidyverse)
+library(here)
+library(readxl)
+library(plotly)
+theme_set(theme_bw())
+
+hypera <- read_excel("../data/HYPE3.xlsx")
+
+```
+
+
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+hypera %>%
+  plot_ly(x = ~as.character.Date(ano), y = ~receita_liquida, type = 'scatter', mode = 'lines')
+
+```
